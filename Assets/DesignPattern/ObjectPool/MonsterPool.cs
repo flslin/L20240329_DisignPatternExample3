@@ -13,8 +13,12 @@ public class MonsterPool : MonoBehaviour
     public float spawnTime; // 몬스터의 젠(생성) 시간
     GameObject[] monsterPool; // 몬스터에 대한 배열 (몬스터 풀)
 
+    GameObject monsterSpawnPool; // 풀을 관리할 오브젝트
+
     void Start()
     {
+        monsterSpawnPool = new GameObject("MonsterSpawnPool");
+
         monsterPool = new GameObject[poolSize]; // 풀에서 설정된 사이즈만큼 할당
 
         Spawn(monsterPool, poolSize); // 할당한 배열만큼 생성 진행
@@ -28,6 +32,7 @@ public class MonsterPool : MonoBehaviour
         {
             monsterPool[i] = Instantiate(monsterPrefab); // 몬스터 프리팹 생성
             monsterPool[i].name = "Monster_" + i; // 생성 몬스터 이름 지정
+            monsterPool[i].transform.parent = monsterSpawnPool.transform; // 풀을 부모로 등록
             
             monsterPool[i].SetActive(false); // 비활성화 처리
         }
