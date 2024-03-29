@@ -44,7 +44,7 @@ public class MonsterPool : MonoBehaviour
         {
             yield return new WaitForSeconds(spawnTime);
 
-            for(int i = 0; i<poolSize; i++)
+            for(int i = 0; i < poolSize; i++)
             {
                 if (monsterPool[i].activeSelf == true)
                     continue;
