@@ -4,15 +4,19 @@ using UnityEngine;
 
 public class Monster : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    // 해당 작업을 위해서는 오브젝트에 Collider 컴포넌트가 연결되어 있어야함
 
-    // Update is called once per frame
-    void Update()
+    // 유니티 마우스, 터치 관련 이벤트 함수
+    // 1. OnMouseOver() : 해당 오브젝트에 마우스가 올라갈 경우 프레임마다 실행
+    // 2. OnMouseEnter() : 해당 오브젝트에 마우스가 올라갈 경우 1회 실행
+    // 3. OnMouseExit() : 해당 오브젝트에 마우스가 벗어날 때 1회 실행
+    // 4. OnMouseUp() : 해당 오브젝트에서 마우스 클릭이 해제될 때 실행
+    // 5. OnMouseDown() : 해당 오브젝트에서 마우스 클릭이 될 때 실행
+    private void OnMouseOver()
     {
-        
+        if (Input.GetMouseButtonDown(0))
+        {
+            gameObject.SetActive(false);
+        }
     }
 }
